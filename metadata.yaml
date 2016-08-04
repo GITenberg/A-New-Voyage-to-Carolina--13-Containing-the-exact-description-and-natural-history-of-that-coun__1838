@@ -1,0 +1,39 @@
+_repo: A-New-Voyage-to-Carolina--13-Containing-the-exact-description-and-natural-history-of-that-coun__1838
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Lawson, John
+    birthdate: 1674
+    deathdate: 1711
+    gutenberg_agent_id: '721'
+    url: http://www.gutenberg.org/2009/agents/721
+    wikipedia: http://en.wikipedia.org/wiki/John_Lawson_%28explorer%29
+description: John Lawson's amazingly detailed yet lively book is easily one of the
+  most valuable of the early histories of the Carolinas, and it is certainly one of
+  the best travel accounts of the early eighteenth-century colonies. An inclusive
+  account of the manners and customs of the Indian tribes of that day, it is also
+  a minute report of the soil, climate, trees, plants, animals, and fish in the Carolinas.Lawson's
+  observation is keen and thorough; his style direct and vivid. He misses nothing
+  and recounts all -- from the storms at sea to his impressions of New York in 1700,
+  the trip down the coast to.
+gutenberg_issued: '1999-07-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '1838'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Indians of North America -- North Carolina'
+- !lcsh 'Natural history -- North Carolina -- Early works to 1800'
+- !lcsh 'Indians of North America -- North Carolina -- Early works to 1800'
+- !lcsh 'North Carolina -- Description and travel -- Early works to 1800'
+- !lcsh 'South Carolina -- Description and travel -- Early works to 1800'
+- !lcc 'F206'
+- GITenberg
+title: "A New Voyage to Carolina\r\nContaining the exact description and natural history\
+  \ of that country; together with the present state thereof; and a journal of a thousand\
+  \ miles, travel'd thro' several nations of Indians; giving a particular account\
+  \ of their customs, manners, etc."
+url: http://www.gutenberg.org/ebooks/1838
