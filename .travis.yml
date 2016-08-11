@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: RSZpdNF+TY6pzrOFW6TRdYRE3+B/o/lcIPf8aAo7hUFYAp2nGDgQyZMJ32Hmdnz1t8JwyJHST40y2B8+yfRCaUbIROMoLLCbMhUYVlcFYl6XWAAxTNdBbuyVjz/7WdCO1JSxndi9YlgWU5/eiHMXiBlH5D+qwMzMspdSeheye1RuMbblKvflfmScsd6XVFjzzvUzbyiIEb8s27PnqicTKh67fe/CZFbV1WMgXpFT0NgRcx2FvNaxJ3hgp0KiI0gQKPj5jX00+2UgVIoA0pkBjSiANhzyOyHXtRXFPEqiSUXmhrnXjsfEzNteXMg5lGmp9ZXHrP5FHC+HnpY4j4H9+Ya6jvTS/qpC4WkkCI4TJReWMCvauG8WQNdL58e12qgKZsOLt7G3UsnlgaJicUDlq896tOkNhLv6r1GHctOxW7NdGSjy+iYaP6V8r6i5OCH8IRDUB6Tmybso3s61IEueV+EdwVKjvvo0UoOQf3mV38yG2cVKwyNUPBIKtajefppEoJ8l5TBjqukvRShNR5K7sNXqaqmPB9Yy0K752BjQ3tk2OgETB1g6XlvXsyPJWKQiASJ/7qWm5xmA9FhJhqa/QguwC1g2vkMhC4bhkpitU2/MO4SkKquG5DwQpVX1Tu7SNUk5S7BNQoQq+d0zjvOyP1zn1GwbujJMJqd/gmmtBAQ=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/A-New-Voyage-to-Carolina--13-Containing-the-exact-description-and-natural-history-of-that-coun__1838
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
